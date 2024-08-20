@@ -5,7 +5,7 @@ import {
 } from "../utilities/Inventory/inventory-service";
 import { useEffect, useState } from "react";
 import InventoryList from "../components/InventoryList";
-import AddInventoryDialog from "../components/AddInventoryDialog";
+import InventoryDialog from "../components/InventoryDialog";
 
 export default function HomePage({ user, setUser }) {
   const [inventoryList, setInventoryList] = useState([]);
@@ -30,7 +30,7 @@ export default function HomePage({ user, setUser }) {
     setInventoryOpen(false);
   };
 
-  const AddInventoryItem = async (data) => {
+  const addInventoryItem = async (data) => {
     const newInventoryItem = await createInventoryItem(data);
     setInventoryList((prevInventoryList) => [
       ...prevInventoryList,
@@ -41,7 +41,10 @@ export default function HomePage({ user, setUser }) {
   return (
     <>
       <h1>home page</h1>
-      <InventoryList inventoryList={inventoryList} />
+      <InventoryList
+        fetchInventoryList={fetchInventoryList}
+        inventoryList={inventoryList}
+      />
 
       {user?.isOwner && (
         <>
@@ -49,10 +52,10 @@ export default function HomePage({ user, setUser }) {
             Add Inventory Item
           </Button>
 
-          <AddInventoryDialog
+          <InventoryDialog
             open={inventoryOpen}
             onClose={handleInventoryDialogClose}
-            onSubmit={AddInventoryItem}
+            onSubmit={addInventoryItem}
           />
         </>
       )}

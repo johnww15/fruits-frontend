@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 
-export default function AddInventoryDialog({ open, onClose, onSubmit }) {
+export default function InventoryDialog({ open, onClose, onSubmit }) {
   const [newInventoryData, setNewInventoryData] = useState({
     name: "",
     price: "",
@@ -48,7 +48,7 @@ export default function AddInventoryDialog({ open, onClose, onSubmit }) {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Add New Inventory Item</DialogTitle>
+      <DialogTitle>Inventory Item</DialogTitle>
       <DialogContent>
         <TextField
           margin="dense"

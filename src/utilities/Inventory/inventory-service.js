@@ -9,3 +9,8 @@ export async function createInventoryItem(data) {
   const response = await InventoryAPI.createInventoryItem(data);
   return response;
 }
+
+export async function updateInventoryItem(data) {
+  const response = await InventoryAPI.updateInventoryItem(data);
+  return response;
+}

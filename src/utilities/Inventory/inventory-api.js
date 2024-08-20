@@ -39,3 +39,19 @@ export async function createInventoryItem(data) {
     throw new Error("Network response failed.");
   }
 }
+
+export async function updateInventoryItem(data) {
+  const inventoryId = data._id;
+  const options = {
+    method: "PUT",
+    headers: createHeaders(),
+    body: JSON.stringify(data),
+  };
+  const res = await fetch(BASE_URL + "/" + inventoryId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+  }
+}
