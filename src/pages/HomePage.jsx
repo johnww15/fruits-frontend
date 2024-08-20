@@ -1,5 +1,8 @@
 import { Button } from "@mui/material";
-import { getInventoryList } from "../utilities/Inventory/inventory-service";
+import {
+  createInventoryItem,
+  getInventoryList,
+} from "../utilities/Inventory/inventory-service";
 import { useEffect, useState } from "react";
 import InventoryList from "../components/InventoryList";
 import AddInventoryDialog from "../components/AddInventoryDialog";
@@ -11,7 +14,6 @@ export default function HomePage({ user, setUser }) {
   const fetchInventoryList = async () => {
     const inventoryListResponse = await getInventoryList();
     setInventoryList(inventoryListResponse);
-    console.log("inventorylistreponse", inventoryListResponse);
   };
 
   useEffect(() => {
@@ -26,8 +28,13 @@ export default function HomePage({ user, setUser }) {
     setInventoryOpen(false);
   };
 
-  //   const AddInventoryItem = async () =>
-  //   }
+  const AddInventoryItem = async (data) => {
+    const newInventoryItem = await createInventoryItem(data);
+    setInventoryList((prevInventoryList) => [
+      ...prevInventoryList,
+      newInventoryItem,
+    ]);
+  };
 
   return (
     <>
@@ -40,7 +47,7 @@ export default function HomePage({ user, setUser }) {
       <AddInventoryDialog
         open={inventoryOpen}
         onClose={handleInventoryDialogClose}
-        // onSubmit={""}
+        onSubmit={AddInventoryItem}
       />
       <Button color="primary" onClick={() => localStorage.clear()}>
         clear localStorage

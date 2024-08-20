@@ -11,21 +11,38 @@ import {
 export default function AddInventoryDialog({ open, onClose, onSubmit }) {
   const [newInventoryData, setNewInventoryData] = useState({
     name: "",
-    price: 0,
-    quantity: 0,
+    price: "",
+    quantity: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Convert value to a number if it's the 'price' or 'quantity' field
+    let formattedValue = value;
+
+    if (name === "price" || name === "quantity") {
+      formattedValue = parseFloat(value);
+
+      // Ensure value is positive and not NaN
+      formattedValue =
+        isNaN(formattedValue) || formattedValue < 0 ? 0 : formattedValue;
+
+      // Limit to two decimal places for price
+      if (name === "price") {
+        formattedValue = parseFloat(formattedValue.toFixed(2));
+      }
+    }
+
     setNewInventoryData((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [name]: formattedValue,
     }));
   };
 
   const handleSubmit = () => {
     onSubmit(newInventoryData);
-    setNewInventoryData({ name: "", price: 0, quantity: 0 });
+    setNewInventoryData({ name: "", price: "", quantity: "" });
     onClose();
   };
 

@@ -24,3 +24,18 @@ export async function getInventoryList() {
     throw new Error("Network response failed.");
   }
 }
+
+export async function createInventoryItem(data) {
+  const options = {
+    method: "POST",
+    headers: createHeaders(),
+    body: JSON.stringify(data),
+  };
+  const res = await fetch(BASE_URL, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    throw new Error("Network response failed.");
+  }
+}
