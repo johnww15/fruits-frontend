@@ -4,6 +4,9 @@ import AuthPage from "./pages/AuthPage";
 import SignupPage from "./pages/SignupPage";
 import HomePage from "./pages/HomePage";
 import { getUser } from "./utilities/Users/users-service";
+import OrdersPage from "./pages/OrdersPage";
+import HistoryPage from "./pages/HistoryPage";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [user, setUser] = useState();
@@ -18,10 +21,19 @@ function App() {
       {user ? (
         <>
           <div className="flex">
+            <NavBar />
             <Routes>
               <Route
                 path="/"
                 element={<HomePage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/orders"
+                element={<OrdersPage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/history"
+                element={<HistoryPage user={user} setUser={setUser} />}
               />
             </Routes>
           </div>
