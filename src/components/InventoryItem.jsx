@@ -1,5 +1,4 @@
 export default function InventoryItem({ item }) {
-  console.log("inventoryitems", item);
   return (
     <>
       <h1>{item.name}</h1>

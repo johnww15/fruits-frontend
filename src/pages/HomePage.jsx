@@ -17,8 +17,10 @@ export default function HomePage({ user, setUser }) {
   };
 
   useEffect(() => {
-    fetchInventoryList();
-  }, []);
+    if (user?.isOwner) {
+      fetchInventoryList();
+    }
+  }, [user]);
 
   const handleInventoryDialogOpen = () => {
     setInventoryOpen(true);
@@ -40,15 +42,21 @@ export default function HomePage({ user, setUser }) {
     <>
       <h1>home page</h1>
       <InventoryList inventoryList={inventoryList} />
-      <Button color="primary" onClick={handleInventoryDialogOpen}>
-        Add Inventory Item
-      </Button>
 
-      <AddInventoryDialog
-        open={inventoryOpen}
-        onClose={handleInventoryDialogClose}
-        onSubmit={AddInventoryItem}
-      />
+      {user?.isOwner && (
+        <>
+          <Button color="primary" onClick={handleInventoryDialogOpen}>
+            Add Inventory Item
+          </Button>
+
+          <AddInventoryDialog
+            open={inventoryOpen}
+            onClose={handleInventoryDialogClose}
+            onSubmit={AddInventoryItem}
+          />
+        </>
+      )}
+
       <Button color="primary" onClick={() => localStorage.clear()}>
         clear localStorage
       </Button>
