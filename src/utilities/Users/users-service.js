@@ -12,7 +12,6 @@ export function getToken() {
   if (!token) return null;
   // if have token, obtain the payload of the token
   const payload = JSON.parse(atob(token.split(".")[1]));
-  // console.log(payload);
   console.log("payload", payload);
   // A JWT's exp is expressed in seconds, not milliseconds, so convert
   if (payload.exp < Date.now() / 1000) {

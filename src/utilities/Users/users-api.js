@@ -6,8 +6,6 @@ const BASE_URL = "/api/users";
 //consolidating function for requests
 export async function sendRequest(url, method = "GET", payload = null) {
   const options = { method };
-  console.log("options", options);
-  console.log("payload", payload);
   if (payload) {
     options.headers = { "Content-Type": "application/json" };
     options.body = JSON.stringify(payload);
@@ -30,12 +28,10 @@ export async function sendRequest(url, method = "GET", payload = null) {
 
 // signup function
 export async function userSignup(signupData) {
-  console.log("user-api signup running");
   return sendRequest(BASE_URL, "POST", signupData);
 }
 
 // login function
 export async function userLogin(loginData) {
-  console.log("user-api login running");
   return sendRequest(BASE_URL + "/login", "POST", loginData);
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage";
 import SignupPage from "./pages/SignupPage";
@@ -9,12 +9,10 @@ import HistoryPage from "./pages/HistoryPage";
 import NavBar from "./components/NavBar";
 
 function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(getUser());
 
-  useEffect(() => {
-    localStorage.clear();
-    setUser(getUser());
-  }, []);
+  // useEffect(() => {
+  // }, []);
 
   return (
     <>
