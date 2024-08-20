@@ -4,10 +4,10 @@ import { TextField, Button } from "@mui/material";
 import Container from "@mui/system/Container";
 
 export default function LoginForm({ setUser }) {
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
+  //   const [loginData, setLoginData] = useState({
+  //     email: "",
+  //     password: "",
+  //   });
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,12 @@ export default function LoginForm({ setUser }) {
 
     setEmailError(false);
     setPasswordError(false);
+
+    const LoginData = {
+      email: email,
+      password: password,
+    };
+    console.log("logindata", LoginData);
   };
 
   return (

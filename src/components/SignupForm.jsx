@@ -33,6 +33,7 @@ export default function SignupForm({ setUser }) {
       password: password,
       isOwner: isOwner,
     };
+    console.log("signupformdata", FormData);
 
     try {
       setUser(true); //to be updated later with userdata
