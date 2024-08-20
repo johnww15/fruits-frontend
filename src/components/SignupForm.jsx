@@ -7,6 +7,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { getUser, userSignup } from "../utilities/Users/users-service";
 
 export default function SignupForm({ setUser }) {
   const navigate = useNavigate();
@@ -33,10 +34,10 @@ export default function SignupForm({ setUser }) {
       password: password,
       isOwner: isOwner,
     };
-    console.log("signupformdata", FormData);
 
     try {
-      setUser(true); //to be updated later with userdata
+      await userSignup(FormData);
+      setUser(getUser());
       navigate("/");
     } catch {
       setError("The email is already in use. Please try again.");

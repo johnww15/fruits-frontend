@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import Container from "@mui/system/Container";
+import { userLogin } from "../utilities/Users/users-service";
 
 export default function LoginForm({ setUser }) {
   //   const [loginData, setLoginData] = useState({
@@ -13,6 +14,8 @@ export default function LoginForm({ setUser }) {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,11 +23,28 @@ export default function LoginForm({ setUser }) {
     setEmailError(false);
     setPasswordError(false);
 
-    const LoginData = {
-      email: email,
-      password: password,
-    };
-    console.log("logindata", LoginData);
+    if (email == "") {
+      setEmailError(true);
+    }
+    if (password == "") {
+      setPasswordError(true);
+    }
+
+    if (email && password) {
+      const LoginData = {
+        email: email,
+        password: password,
+      };
+
+      try {
+        const user = await userLogin(LoginData.email, LoginData.password);
+        setUser(user);
+        navigate("/");
+      } catch {
+        // User-error validation #1
+        setError("The email and password are invalid. Please try again.");
+      }
+    }
   };
 
   return (
