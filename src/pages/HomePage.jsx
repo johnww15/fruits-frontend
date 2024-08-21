@@ -58,6 +58,7 @@ export default function HomePage({ user, setUser }) {
       <InventoryList
         fetchInventoryList={fetchInventoryList}
         inventoryList={inventoryList}
+        user={user}
       />
 
       {user?.isOwner && (

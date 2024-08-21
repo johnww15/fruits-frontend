@@ -7,19 +7,17 @@ import { getUser } from "./utilities/Users/users-service";
 import OrdersPage from "./pages/OrdersPage";
 import HistoryPage from "./pages/HistoryPage";
 import NavBar from "./components/NavBar";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
-
-  // useEffect(() => {
-  // }, []);
 
   return (
     <>
       {user ? (
         <>
           <div className="flex">
-            <NavBar />
+            <NavBar user={user} />
             <Routes>
               <Route
                 path="/"
@@ -32,6 +30,10 @@ function App() {
               <Route
                 path="/history"
                 element={<HistoryPage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/cart"
+                element={<CartPage user={user} setUser={setUser} />}
               />
             </Routes>
           </div>

@@ -7,17 +7,17 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Home", "History", "Orders"];
-
-export default function NavBar() {
+export default function NavBar({ user }) {
   const navigate = useNavigate();
+  const pages = user.isOwner
+    ? ["Home", "History", "Orders"]
+    : ["Home", "History", "Cart"];
 
   const handleNav = (page) => {
     if (page.toLowerCase() === "home") {
       navigate("/");
     } else {
       navigate(`/${page.toLowerCase()}`);
-      console.log("event.currentTarget", page.toLowerCase());
     }
   };
 
