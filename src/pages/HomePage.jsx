@@ -51,7 +51,6 @@ export default function HomePage({ user, setUser }) {
     setUser(null);
     window.location.reload();
   };
-
   return (
     <>
       <h1>home page</h1>
