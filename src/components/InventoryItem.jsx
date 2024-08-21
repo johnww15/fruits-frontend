@@ -19,6 +19,7 @@ export default function InventoryItem({
   deleteOpen,
   setDeleteOpen,
 }) {
+  //functions to control the state and rendering of dialogs
   const handleUpdateInventoryDialogOpen = () => {
     setUpdateInventoryOpen(true);
     setSelectedItem(item);
@@ -39,6 +40,7 @@ export default function InventoryItem({
     setDeletedItem({});
   };
 
+  //functions for api calls
   const updateInventory = async (data) => {
     await updateInventoryItem({ ...data, _id: selectedItem._id });
     fetchInventoryList();

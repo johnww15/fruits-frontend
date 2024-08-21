@@ -38,6 +38,12 @@ export default function HomePage({ user, setUser }) {
     ]);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    setUser(null);
+    window.location.reload();
+  };
+
   return (
     <>
       <h1>home page</h1>
@@ -60,8 +66,8 @@ export default function HomePage({ user, setUser }) {
         </>
       )}
 
-      <Button color="primary" onClick={() => localStorage.clear()}>
-        clear localStorage
+      <Button color="primary" onClick={handleLogout}>
+        logout
       </Button>
     </>
   );
