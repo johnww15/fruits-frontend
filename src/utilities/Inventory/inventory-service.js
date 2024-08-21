@@ -14,3 +14,8 @@ export async function updateInventoryItem(data) {
   const response = await InventoryAPI.updateInventoryItem(data);
   return response;
 }
+
+export async function deleteInventoryItem(id) {
+  const response = await InventoryAPI.deleteInventoryItem(id);
+  return response;
+}

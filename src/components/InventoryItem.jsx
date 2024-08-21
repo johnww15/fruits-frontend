@@ -1,6 +1,11 @@
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import InventoryDialog from "./InventoryDialog";
-import { updateInventoryItem } from "../utilities/Inventory/inventory-service";
+import {
+  deleteInventoryItem,
+  updateInventoryItem,
+} from "../utilities/Inventory/inventory-service";
+import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteDialog from "./DeleteDialog";
 
 export default function InventoryItem({
   item,
@@ -9,10 +14,13 @@ export default function InventoryItem({
   setUpdateInventoryOpen,
   selectedItem,
   setSelectedItem,
+  deletedItem,
+  setDeletedItem,
+  deleteOpen,
+  setDeleteOpen,
 }) {
   const handleUpdateInventoryDialogOpen = () => {
     setUpdateInventoryOpen(true);
-    console.log("itemclicked", item);
     setSelectedItem(item);
   };
 
@@ -21,8 +29,23 @@ export default function InventoryItem({
     setSelectedItem({});
   };
 
+  const handleDeleteInventoryDialogOpen = () => {
+    setDeleteOpen(true);
+    setDeletedItem(item);
+  };
+
+  const handleDeleteInventoryDialogClose = () => {
+    setDeleteOpen(false);
+    setDeletedItem({});
+  };
+
   const updateInventory = async (data) => {
     await updateInventoryItem({ ...data, _id: selectedItem._id });
+    fetchInventoryList();
+  };
+
+  const deleteInventory = async (data) => {
+    await deleteInventoryItem(data._id);
     fetchInventoryList();
   };
 
@@ -34,6 +57,16 @@ export default function InventoryItem({
       <Button color="primary" onClick={handleUpdateInventoryDialogOpen}>
         Update Item
       </Button>
+      <IconButton color="secondary" onClick={handleDeleteInventoryDialogOpen}>
+        <DeleteIcon />
+      </IconButton>
+
+      <DeleteDialog
+        open={deleteOpen}
+        onClose={handleDeleteInventoryDialogClose}
+        onSubmit={deleteInventory}
+        item={deletedItem}
+      />
 
       <InventoryDialog
         open={updateInventoryOpen}

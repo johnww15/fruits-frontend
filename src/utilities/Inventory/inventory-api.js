@@ -55,3 +55,18 @@ export async function updateInventoryItem(data) {
     return res;
   }
 }
+
+export async function deleteInventoryItem(id) {
+  const inventoryId = id;
+  const options = {
+    method: "DELETE",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL + "/" + inventoryId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+  }
+}
