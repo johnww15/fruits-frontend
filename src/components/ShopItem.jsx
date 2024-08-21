@@ -2,6 +2,8 @@ import { IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { createPurchase } from "../utilities/Purchases/purchases-service";
 import ShopDialog from "./CartDialog";
+import { AppContext } from "../context/AppContext";
+import { useContext } from "react";
 
 export default function ShopItem({
   item,
@@ -10,6 +12,8 @@ export default function ShopItem({
   purchasedItem,
   setPurchasedItem,
 }) {
+  const { updatePurchaseList } = useContext(AppContext);
+
   const handleCreatePurchaseDialogOpen = () => {
     setCreatePurchaseOpen(true);
     setPurchasedItem(item);
@@ -27,7 +31,10 @@ export default function ShopItem({
       price: parseFloat(purchasedItem.price),
       inventoryId: purchasedItem._id,
     });
-    console.log("newpurchase", newPurchase);
+    updatePurchaseList((prevPurchaseList) => [
+      ...prevPurchaseList,
+      newPurchase,
+    ]);
   };
 
   return (

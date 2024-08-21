@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AppProvider } from "../src/context/AppContext";
 import AuthPage from "./pages/AuthPage";
 import SignupPage from "./pages/SignupPage";
 import HomePage from "./pages/HomePage";
@@ -13,7 +14,7 @@ function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <>
+    <AppProvider>
       {user ? (
         <>
           <div className="flex">
@@ -54,7 +55,7 @@ function App() {
           </div>
         </>
       )}
-    </>
+    </AppProvider>
   );
 }
 
