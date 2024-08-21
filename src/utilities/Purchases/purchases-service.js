@@ -9,3 +9,8 @@ export async function getPurchaseList(id) {
   const response = await PurchasesAPI.getPurchaseList(id);
   return response;
 }
+
+export async function deletePurchaseItem(id) {
+  const response = await PurchasesAPI.deletePurchaseItem(id);
+  return response;
+}

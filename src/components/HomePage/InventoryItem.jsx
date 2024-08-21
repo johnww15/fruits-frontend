@@ -1,14 +1,15 @@
 import { Button, IconButton } from "@mui/material";
-import InventoryDialog from "./InventoryDialog";
+import InventoryDialog from "../Dialogs/InventoryDialog";
 import {
   deleteInventoryItem,
   updateInventoryItem,
-} from "../utilities/Inventory/inventory-service";
+} from "../../utilities/Inventory/inventory-service";
 import DeleteIcon from "@mui/icons-material/Delete";
-import DeleteDialog from "./DeleteDialog";
+import DeleteDialog from "../Dialogs/DeleteDialog";
 
 export default function InventoryItem({
   item,
+  user,
   fetchInventoryList,
   updateInventoryOpen,
   setUpdateInventoryOpen,
@@ -43,12 +44,12 @@ export default function InventoryItem({
   //functions for api calls
   const updateInventory = async (data) => {
     await updateInventoryItem({ ...data, _id: selectedItem._id });
-    fetchInventoryList();
+    fetchInventoryList(user);
   };
 
   const deleteInventory = async (data) => {
     await deleteInventoryItem(data._id);
-    fetchInventoryList();
+    fetchInventoryList(user);
   };
 
   return (

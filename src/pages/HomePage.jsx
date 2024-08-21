@@ -5,8 +5,8 @@ import {
   getInventoryList,
 } from "../utilities/Inventory/inventory-service";
 import { useEffect, useState } from "react";
-import InventoryList from "../components/InventoryList";
-import InventoryDialog from "../components/InventoryDialog";
+import InventoryList from "../components/HomePage/InventoryList";
+import InventoryDialog from "../components/Dialogs/InventoryDialog";
 
 export default function HomePage({ user, setUser }) {
   const [inventoryList, setInventoryList] = useState([]);

@@ -21,6 +21,7 @@ export default function InventoryList({
             <InventoryItem
               key={item.id}
               item={item}
+              user={user}
               fetchInventoryList={fetchInventoryList}
               updateInventoryOpen={updateInventoryOpen}
               setUpdateInventoryOpen={setUpdateInventoryOpen}

@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import { getUser } from "./utilities/Users/users-service";
 import OrdersPage from "./pages/OrdersPage";
 import HistoryPage from "./pages/HistoryPage";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import CartPage from "./pages/CartPage";
 
 function App() {

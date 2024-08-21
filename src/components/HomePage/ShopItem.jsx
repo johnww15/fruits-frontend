@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { createPurchase } from "../utilities/Purchases/purchases-service";
-import ShopDialog from "./CartDialog";
-import { AppContext } from "../context/AppContext";
+import { createPurchase } from "../../utilities/Purchases/purchases-service";
+import ShopDialog from "../Dialogs/CartDialog";
+import { AppContext } from "../../context/AppContext";
 import { useContext } from "react";
 
 export default function ShopItem({

@@ -40,3 +40,18 @@ export async function getPurchaseList(id) {
     throw new Error("Network response failed.");
   }
 }
+
+export async function deletePurchaseItem(id) {
+  const purchaseId = id;
+  const options = {
+    method: "DELETE",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL + "/" + purchaseId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+  }
+}

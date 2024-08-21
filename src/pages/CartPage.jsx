@@ -1,17 +1,14 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { getPurchaseList } from "../utilities/Purchases/purchases-service";
+import CartList from "../components/CartPage/CartList";
 
 export default function CartPage({ user, setUser }) {
   const { purchaseList, updatePurchaseList } = useContext(AppContext);
 
   const fetchPurchaseList = async (user) => {
     const purchaseListResponse = await getPurchaseList(user._id);
-    updatePurchaseList((prevPurchaseList) => [
-      ...prevPurchaseList,
-      purchaseListResponse,
-    ]);
-    console.log("fetchPurchaseList", purchaseList);
+    updatePurchaseList(purchaseListResponse);
   };
 
   useEffect(() => {
@@ -23,6 +20,7 @@ export default function CartPage({ user, setUser }) {
   return (
     <>
       <h1>cart page is here</h1>
+      <CartList fetchPurchaseList={fetchPurchaseList} user={user} />
     </>
   );
 }

@@ -7,7 +7,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { getUser, userSignup } from "../utilities/Users/users-service";
+import { getUser, userSignup } from "../../utilities/Users/users-service";
 
 export default function SignupForm({ setUser }) {
   const navigate = useNavigate();
