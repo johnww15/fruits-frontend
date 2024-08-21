@@ -11,12 +11,13 @@ function createHeaders() {
   };
 }
 
-export async function getInventoryList() {
+export async function getInventoryList(id) {
+  const userId = id;
   const options = {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL, options);
+  const res = await fetch(BASE_URL + "/" + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -63,6 +64,20 @@ export async function deleteInventoryItem(id) {
     headers: createHeaders(),
   };
   const res = await fetch(BASE_URL + "/" + inventoryId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+  }
+}
+
+export async function getFullInventoryList() {
+  const options = {
+    method: "GET",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL, options);
   const json = await res.json();
   if (res.ok) {
     return json;

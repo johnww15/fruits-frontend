@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import {
   createInventoryItem,
+  getFullInventoryList,
   getInventoryList,
 } from "../utilities/Inventory/inventory-service";
 import { useEffect, useState } from "react";
@@ -11,14 +12,21 @@ export default function HomePage({ user, setUser }) {
   const [inventoryList, setInventoryList] = useState([]);
   const [inventoryOpen, setInventoryOpen] = useState(false);
 
-  const fetchInventoryList = async () => {
-    const inventoryListResponse = await getInventoryList();
+  const fetchInventoryList = async (user) => {
+    const inventoryListResponse = await getInventoryList(user._id);
     setInventoryList(inventoryListResponse);
+  };
+
+  const fetchFullInventoryList = async () => {
+    const fullInventoryListResponse = await getFullInventoryList();
+    setInventoryList(fullInventoryListResponse);
   };
 
   useEffect(() => {
     if (user?.isOwner) {
-      fetchInventoryList();
+      fetchInventoryList(user);
+    } else {
+      fetchFullInventoryList();
     }
   }, [user]);
 

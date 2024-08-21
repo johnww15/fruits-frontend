@@ -1,7 +1,7 @@
 import * as InventoryAPI from "./inventory-api";
 
-export async function getInventoryList() {
-  const response = await InventoryAPI.getInventoryList();
+export async function getInventoryList(id) {
+  const response = await InventoryAPI.getInventoryList(id);
   return response;
 }
 
@@ -17,5 +17,10 @@ export async function updateInventoryItem(data) {
 
 export async function deleteInventoryItem(id) {
   const response = await InventoryAPI.deleteInventoryItem(id);
+  return response;
+}
+
+export async function getFullInventoryList() {
+  const response = await InventoryAPI.getFullInventoryList();
   return response;
 }
