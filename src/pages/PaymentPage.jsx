@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 import { updatePurchasesPaid } from "../utilities/Purchases/purchases-service";
 
 export default function PaymentPage({ user, setUser }) {
   const { purchaseList, updatePurchaseList } = useContext(AppContext);
+  const navigate = useNavigate();
 
   function calculateTotalCost(list) {
     const total = list.reduce((total, item) => {
@@ -20,8 +22,8 @@ export default function PaymentPage({ user, setUser }) {
   }
 
   const handlePaymentForCart = async () => {
-    const response = await updatePurchasesPaid(user._id);
-    console.log("payment for cart triggered", response);
+    await updatePurchasesPaid(user._id);
+    navigate("/");
   };
 
   return (
