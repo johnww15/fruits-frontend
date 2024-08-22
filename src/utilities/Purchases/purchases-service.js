@@ -1,5 +1,6 @@
 import * as PurchasesAPI from "./purchases-api";
 
+//functions for customers UI
 export async function createPurchase(data) {
   const response = await PurchasesAPI.createPurchase(data);
   return response;
@@ -17,5 +18,16 @@ export async function deletePurchaseItem(id) {
 
 export async function updatePurchasesPaid(id) {
   const response = await PurchasesAPI.updatePurchasesPaid(id);
+  return response;
+}
+
+//functions for shop owners UI
+export async function getOrdersList(id) {
+  const response = await PurchasesAPI.getOrdersList(id);
+  return response;
+}
+
+export async function fulfillOrderItem(id) {
+  const response = await PurchasesAPI.fulfillOrderItem(id);
   return response;
 }

@@ -5,14 +5,14 @@ export const AppContext = createContext();
 // Create a provider component
 export const AppProvider = ({ children }) => {
   const [purchaseList, setPurchaseList] = useState([]);
-  const [orderList, setOrderList] = useState([]);
+  const [ordersList, setOrdersList] = useState([]);
 
   const updatePurchaseList = (newList) => {
     setPurchaseList(newList);
   };
 
-  const updateOrderList = (newList) => {
-    setOrderList(newList);
+  const updateOrdersList = (newList) => {
+    setOrdersList(newList);
   };
 
   return (
@@ -20,8 +20,8 @@ export const AppProvider = ({ children }) => {
       value={{
         purchaseList,
         updatePurchaseList,
-        orderList,
-        updateOrderList,
+        ordersList,
+        updateOrdersList,
       }}
     >
       {children}
