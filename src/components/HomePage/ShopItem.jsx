@@ -25,11 +25,13 @@ export default function ShopItem({
   };
 
   const handleCreatePurchase = async (data) => {
+    console.log("purchasedItem", purchasedItem);
     const newPurchase = await createPurchase({
       ...data,
       name: purchasedItem.name,
       price: parseFloat(purchasedItem.price),
       inventoryId: purchasedItem._id,
+      sellerId: purchasedItem.userId,
     });
     updatePurchaseList((prevPurchaseList) => [
       ...prevPurchaseList,
