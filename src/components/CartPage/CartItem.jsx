@@ -29,11 +29,18 @@ export default function CartItem({
     fetchPurchaseList(user);
   };
 
+  const calculateCostOfItem = (item) => {
+    const total = parseFloat(item.price) * item.quantity;
+    return total;
+  };
+
   return (
     <>
       <h1>{item.name}</h1>
       <p>${item.price}</p>
       <p>{item.quantity}</p>
+      <p>{String(item.isPaid)}</p>
+      <p>Total Cost: ${calculateCostOfItem(item)}</p>
       <IconButton color="secondary" onClick={handleDeleteCartDialogOpen}>
         <DeleteIcon />
       </IconButton>

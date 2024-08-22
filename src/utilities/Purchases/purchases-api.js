@@ -55,3 +55,18 @@ export async function deletePurchaseItem(id) {
     return res;
   }
 }
+
+export async function updatePurchasesPaid(id) {
+  const userId = id;
+  const options = {
+    method: "PUT",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL + "/update/" + userId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+  }
+}

@@ -14,3 +14,8 @@ export async function deletePurchaseItem(id) {
   const response = await PurchasesAPI.deletePurchaseItem(id);
   return response;
 }
+
+export async function updatePurchasesPaid(id) {
+  const response = await PurchasesAPI.updatePurchasesPaid(id);
+  return response;
+}
