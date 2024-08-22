@@ -25,7 +25,6 @@ export default function ShopItem({
   };
 
   const handleCreatePurchase = async (data) => {
-    console.log("purchasedItem", purchasedItem);
     const newPurchase = await createPurchase({
       ...data,
       name: purchasedItem.name,

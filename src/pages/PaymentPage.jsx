@@ -22,7 +22,8 @@ export default function PaymentPage({ user, setUser }) {
   }
 
   const handlePaymentForCart = async () => {
-    await updatePurchasesPaid(user._id);
+    let response = await updatePurchasesPaid(user._id);
+    console.log(response);
     navigate("/");
   };
 
