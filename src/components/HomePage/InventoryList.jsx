@@ -1,18 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import InventoryItem from "./InventoryItem";
 import ShopItem from "./ShopItem";
 
-export default function InventoryList({
-  inventoryList,
-  fetchInventoryList,
-  user,
-}) {
+export default function InventoryList({ fetchInventoryList, user }) {
   const [updateInventoryOpen, setUpdateInventoryOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [createPurchaseOpen, setCreatePurchaseOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
   const [deletedItem, setDeletedItem] = useState({});
   const [purchasedItem, setPurchasedItem] = useState({});
+  const { inventoryList } = useContext(AppContext);
 
   return (
     <>

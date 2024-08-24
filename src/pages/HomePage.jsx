@@ -4,22 +4,23 @@ import {
   getFullInventoryList,
   getInventoryList,
 } from "../utilities/Inventory/inventory-service";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import InventoryList from "../components/HomePage/InventoryList";
 import InventoryDialog from "../components/Dialogs/InventoryDialog";
 
 export default function HomePage({ user, setUser }) {
-  const [inventoryList, setInventoryList] = useState([]);
   const [inventoryOpen, setInventoryOpen] = useState(false);
+  const { updateInventoryList } = useContext(AppContext);
 
   const fetchInventoryList = async (user) => {
     const inventoryListResponse = await getInventoryList(user._id);
-    setInventoryList(inventoryListResponse);
+    updateInventoryList(inventoryListResponse);
   };
 
   const fetchFullInventoryList = async () => {
     const fullInventoryListResponse = await getFullInventoryList();
-    setInventoryList(fullInventoryListResponse);
+    updateInventoryList(fullInventoryListResponse);
   };
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function HomePage({ user, setUser }) {
 
   const addInventoryItem = async (data) => {
     const newInventoryItem = await createInventoryItem(data);
-    setInventoryList((prevInventoryList) => [
+    updateInventoryList((prevInventoryList) => [
       ...prevInventoryList,
       newInventoryItem,
     ]);
@@ -54,11 +55,7 @@ export default function HomePage({ user, setUser }) {
   return (
     <>
       <h1>home page</h1>
-      <InventoryList
-        fetchInventoryList={fetchInventoryList}
-        inventoryList={inventoryList}
-        user={user}
-      />
+      <InventoryList fetchInventoryList={fetchInventoryList} user={user} />
 
       {user?.isOwner && (
         <>

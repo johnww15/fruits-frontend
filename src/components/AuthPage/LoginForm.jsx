@@ -5,11 +5,6 @@ import Container from "@mui/system/Container";
 import { userLogin } from "../../utilities/Users/users-service";
 
 export default function LoginForm({ setUser }) {
-  //   const [loginData, setLoginData] = useState({
-  //     email: "",
-  //     password: "",
-  //   });
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
