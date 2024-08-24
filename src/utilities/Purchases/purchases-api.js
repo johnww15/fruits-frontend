@@ -71,6 +71,21 @@ export async function updatePurchasesPaid(id) {
   }
 }
 
+export async function getHistoryList(id) {
+  const userId = id;
+  const options = {
+    method: "GET",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL + "/history/" + userId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    throw new Error("Network response failed.");
+  }
+}
+
 export async function getOrdersList(id) {
   const userId = id;
   const options = {

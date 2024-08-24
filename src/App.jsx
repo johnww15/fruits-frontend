@@ -10,6 +10,7 @@ import HistoryPage from "./pages/HistoryPage";
 import NavBar from "./components/NavBar/NavBar";
 import CartPage from "./pages/CartPage";
 import PaymentPage from "./pages/PaymentPage";
+import AnalyticsPage from "./pages/AnalyticsPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -40,6 +41,10 @@ function App() {
               <Route
                 path="/payment"
                 element={<PaymentPage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/analytics"
+                element={<AnalyticsPage user={user} setUser={setUser} />}
               />
             </Routes>
           </div>

@@ -6,6 +6,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [purchaseList, setPurchaseList] = useState([]);
   const [ordersList, setOrdersList] = useState([]);
+  const [historyList, setHistoryList] = useState([]);
 
   const updatePurchaseList = (newList) => {
     setPurchaseList(newList);
@@ -15,6 +16,10 @@ export const AppProvider = ({ children }) => {
     setOrdersList(newList);
   };
 
+  const updateHistoryList = (newList) => {
+    setHistoryList(newList);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -22,6 +27,8 @@ export const AppProvider = ({ children }) => {
         updatePurchaseList,
         ordersList,
         updateOrdersList,
+        historyList,
+        updateHistoryList,
       }}
     >
       {children}

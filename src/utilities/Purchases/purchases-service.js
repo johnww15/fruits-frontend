@@ -21,6 +21,10 @@ export async function updatePurchasesPaid(id) {
   return response;
 }
 
+export async function getHistoryList(id) {
+  const response = await PurchasesAPI.getHistoryList(id);
+  return response;
+}
 //functions for shop owners UI
 export async function getOrdersList(id) {
   const response = await PurchasesAPI.getOrdersList(id);

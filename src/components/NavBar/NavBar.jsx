@@ -10,7 +10,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 export default function NavBar({ user }) {
   const navigate = useNavigate();
   const pages = user.isOwner
-    ? ["Home", "History", "Orders"]
+    ? ["Home", "Analytics", "Orders"]
     : ["Home", "History", "Cart"];
 
   const handleNav = (page) => {
