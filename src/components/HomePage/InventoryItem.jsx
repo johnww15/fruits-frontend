@@ -56,7 +56,8 @@ export default function InventoryItem({
     <>
       <h1>{item.name}</h1>
       <p>${item.price}</p>
-      <p>{item.quantity}</p>
+      <p>Initial Stock:{item.quantity}</p>
+      <p>Current Stock:{item.quantity - item.sold}</p>
       <Button color="primary" onClick={handleUpdateInventoryDialogOpen}>
         Update Item
       </Button>

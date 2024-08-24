@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import { getHistoryList } from "../utilities/Purchases/purchases-service";
 import HistoryList from "../components/HistoryPage/historylist";
 
-export default function HistoryPage({ user, setUser }) {
+export default function HistoryPage({ user }) {
   const { updateHistoryList } = useContext(AppContext);
 
   const fetchHistoryList = async (user) => {
@@ -23,7 +23,7 @@ export default function HistoryPage({ user, setUser }) {
 
   return (
     <>
-      <h1>history page is here</h1>
+      <h1>Your past purchases</h1>
       <HistoryList user={user} />
     </>
   );

@@ -35,3 +35,8 @@ export async function fulfillOrderItem(id) {
   const response = await PurchasesAPI.fulfillOrderItem(id);
   return response;
 }
+
+export async function getPurchaseListForInventoryItem(id) {
+  const response = await PurchasesAPI.getPurchaseListForInventoryItem(id);
+  return response;
+}

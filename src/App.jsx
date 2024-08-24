@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar/NavBar";
 import CartPage from "./pages/CartPage";
 import PaymentPage from "./pages/PaymentPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
+import LogoutPage from "./pages/LogoutPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -22,29 +23,15 @@ function App() {
           <div className="flex">
             <NavBar user={user} />
             <Routes>
+              <Route path="/" element={<HomePage user={user} />} />
+              <Route path="/orders" element={<OrdersPage user={user} />} />
+              <Route path="/history" element={<HistoryPage user={user} />} />
+              <Route path="/cart" element={<CartPage user={user} />} />
+              <Route path="/payment" element={<PaymentPage user={user} />} />
+              <Route path="/analytics" element={<AnalyticsPage />} />
               <Route
-                path="/"
-                element={<HomePage user={user} setUser={setUser} />}
-              />
-              <Route
-                path="/orders"
-                element={<OrdersPage user={user} setUser={setUser} />}
-              />
-              <Route
-                path="/history"
-                element={<HistoryPage user={user} setUser={setUser} />}
-              />
-              <Route
-                path="/cart"
-                element={<CartPage user={user} setUser={setUser} />}
-              />
-              <Route
-                path="/payment"
-                element={<PaymentPage user={user} setUser={setUser} />}
-              />
-              <Route
-                path="/analytics"
-                element={<AnalyticsPage user={user} setUser={setUser} />}
+                path="/logout"
+                element={<LogoutPage setUser={setUser} />}
               />
             </Routes>
           </div>

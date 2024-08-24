@@ -3,7 +3,7 @@ import OrdersList from "../components/OrdersPage/OrdersList";
 import { AppContext } from "../context/AppContext";
 import { getOrdersList } from "../utilities/Purchases/purchases-service";
 
-export default function OrdersPage({ user, setUser }) {
+export default function OrdersPage({ user }) {
   const { updateOrdersList } = useContext(AppContext);
 
   const fetchOrdersList = async (user) => {
@@ -23,7 +23,7 @@ export default function OrdersPage({ user, setUser }) {
 
   return (
     <>
-      <h1>orders page is here</h1>
+      <h1>Orders to be fulfilled</h1>
       <OrdersList fetchOrdersList={fetchOrdersList} user={user} />
     </>
   );

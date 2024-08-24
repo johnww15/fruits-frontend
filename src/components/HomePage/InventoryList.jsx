@@ -14,6 +14,7 @@ export default function InventoryList({ fetchInventoryList, user }) {
 
   return (
     <>
+      {user.isOwner ? <h1>Your inventory</h1> : <h1>Available stock</h1>}
       {user.isOwner
         ? inventoryList.map((item) => (
             <InventoryItem

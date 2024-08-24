@@ -4,8 +4,8 @@ import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { updatePurchasesPaid } from "../utilities/Purchases/purchases-service";
 
-export default function PaymentPage({ user, setUser }) {
-  const { purchaseList, updatePurchaseList } = useContext(AppContext);
+export default function PaymentPage({ user }) {
+  const { purchaseList } = useContext(AppContext);
   const navigate = useNavigate();
 
   function calculateTotalCost(list) {

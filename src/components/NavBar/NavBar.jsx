@@ -10,8 +10,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 export default function NavBar({ user }) {
   const navigate = useNavigate();
   const pages = user.isOwner
-    ? ["Home", "Analytics", "Orders"]
-    : ["Home", "History", "Cart"];
+    ? ["Home", "Analytics", "Orders", "Logout"]
+    : ["Home", "History", "Cart", "Logout"];
 
   const handleNav = (page) => {
     if (page.toLowerCase() === "home") {

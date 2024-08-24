@@ -9,7 +9,7 @@ import { AppContext } from "../context/AppContext";
 import InventoryList from "../components/HomePage/InventoryList";
 import InventoryDialog from "../components/Dialogs/InventoryDialog";
 
-export default function HomePage({ user, setUser }) {
+export default function HomePage({ user }) {
   const [inventoryOpen, setInventoryOpen] = useState(false);
   const { updateInventoryList } = useContext(AppContext);
 
@@ -47,14 +47,8 @@ export default function HomePage({ user, setUser }) {
     ]);
   };
 
-  const handleLogout = () => {
-    localStorage.clear();
-    setUser(null);
-    window.location.reload();
-  };
   return (
     <>
-      <h1>home page</h1>
       <InventoryList fetchInventoryList={fetchInventoryList} user={user} />
 
       {user?.isOwner && (
@@ -70,10 +64,6 @@ export default function HomePage({ user, setUser }) {
           />
         </>
       )}
-
-      <Button color="primary" onClick={handleLogout}>
-        logout
-      </Button>
     </>
   );
 }

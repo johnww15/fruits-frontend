@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import { getPurchaseList } from "../utilities/Purchases/purchases-service";
 import CartList from "../components/CartPage/CartList";
 
-export default function CartPage({ user, setUser }) {
+export default function CartPage({ user }) {
   const { updatePurchaseList } = useContext(AppContext);
 
   const fetchPurchaseList = async (user) => {
@@ -23,7 +23,7 @@ export default function CartPage({ user, setUser }) {
 
   return (
     <>
-      <h1>cart page is here</h1>
+      <h1>Your shopping cart</h1>
       <CartList fetchPurchaseList={fetchPurchaseList} user={user} />
     </>
   );

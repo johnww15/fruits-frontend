@@ -115,3 +115,18 @@ export async function fulfillOrderItem(id) {
     return res;
   }
 }
+
+export async function getPurchaseListForInventoryItem(id) {
+  const inventoryId = id;
+  const options = {
+    method: "GET",
+    headers: createHeaders(),
+  };
+  const res = await fetch(BASE_URL + "/inventory/" + inventoryId, options);
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    throw new Error("Network response failed.");
+  }
+}
