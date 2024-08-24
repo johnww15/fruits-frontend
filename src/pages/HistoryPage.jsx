@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { getHistoryList } from "../utilities/Purchases/purchases-service";
+import HistoryList from "../components/HistoryPage/historylist";
 
 export default function HistoryPage({ user, setUser }) {
   const { updateHistoryList } = useContext(AppContext);
@@ -12,7 +13,6 @@ export default function HistoryPage({ user, setUser }) {
     } else {
       updateHistoryList([]);
     }
-    console.log("historylistfetch triggered", user);
   };
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function HistoryPage({ user, setUser }) {
   return (
     <>
       <h1>history page is here</h1>
+      <HistoryList user={user} />
     </>
   );
 }
