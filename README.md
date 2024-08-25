@@ -7,7 +7,7 @@
 - Built with MongoDB, Express.js, React.js and Node.js
 - Backend repository can be accessed here -> (https://github.com/johnww15/fruits-backend)
 
-  **TimeFrame**
+**TimeFrame**
 
 - 1 week
 
@@ -66,34 +66,32 @@ A full stack fruit stall ecommerce web application for shop owner accounts to cr
 - `PUT /api/purchases/update/shop/:purchaseId` - Updates purchase entry when fulfilled
 - `DELETE /api/purchases/purchaseId` - Deletes a purchase entry
 
-  **User Routes**
-
 ## Screenshots of Application
 
-**ERD**
+**Entity Relationship Diagram**  
 ![ERD](https://github.com/johnww15/fruits-frontend/blob/main/public/01_ERD.png?raw=true)
 
 - Basic ERD Diagram to showcase the different data models
 
-**Login Account Screen**
+**Login Account Screen**  
 ![Login Screen](https://github.com/johnww15/fruits-frontend/blob/main/public/02_Login.png?raw=true)
 
-**Customer Home Page**
+**Customer Home Page**  
 ![Customer Home Page](https://github.com/johnww15/fruits-frontend/blob/main/public/03_CustomerHomePage.png?raw=true)
 
 - Customers can click on the shopping cart icon to create a new purchase
 
-**Customer Past Purchases**
+**Customer Past Purchases**  
 ![Customer Past Purchases](https://github.com/johnww15/fruits-frontend/blob/main/public/04_CustomerPastPurchases.png?raw=true)
 
 - Customers can view their previous purchases and can click the "Quick Buy" button to immediately create a new purchase with the same quantity as before
 
-**Customer Shopping Cart**
+**Customer Shopping Cart**  
 ![Customer Shopping Cart](https://github.com/johnww15/fruits-frontend/blob/main/public/05_CustomerCart.png?raw=true)
 
 - Customers can click the trashcan icon to delete an existing purchase request before proceeding to check out
 
-**Shop Owner Store Page**
+**Shop Owner Store Page**  
 ![Owner Home Page](https://github.com/johnww15/fruits-frontend/blob/main/public/06_OwnerHomePage.png?raw=true)
 
 - Shop Owners can view their current stock levels on the page, add new listings or update existing listings
