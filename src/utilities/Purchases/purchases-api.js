@@ -1,7 +1,8 @@
 import { getToken } from "../Users/users-service";
 
 //constant for file
-const BASE_URL = "/api/purchases";
+const apiUrl = import.meta.env.VITE_API_URL;
+const BASE_URL = `${apiUrl}/api/purchases`;
 
 function createHeaders() {
   const TOKEN = getToken();
@@ -32,7 +33,7 @@ export async function getPurchaseList(id) {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/" + userId, options);
+  const res = await fetch(`${BASE_URL}/` + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -47,7 +48,7 @@ export async function deletePurchaseItem(id) {
     method: "DELETE",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/" + purchaseId, options);
+  const res = await fetch(`${BASE_URL}/` + purchaseId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -62,7 +63,7 @@ export async function updatePurchasesPaid(id) {
     method: "PUT",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/update/" + userId, options);
+  const res = await fetch(`${BASE_URL}/update/` + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -77,7 +78,7 @@ export async function getHistoryList(id) {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/history/" + userId, options);
+  const res = await fetch(`${BASE_URL}/history/` + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -92,7 +93,7 @@ export async function getOrdersList(id) {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/shop/" + userId, options);
+  const res = await fetch(`${BASE_URL}/shop/` + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -107,7 +108,7 @@ export async function fulfillOrderItem(id) {
     method: "PUT",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/update/shop/" + purchaseId, options);
+  const res = await fetch(`${BASE_URL}/update/shop/` + purchaseId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -122,7 +123,7 @@ export async function getPurchaseListForInventoryItem(id) {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/inventory/" + inventoryId, options);
+  const res = await fetch(`${BASE_URL}/inventory/` + inventoryId, options);
   const json = await res.json();
   if (res.ok) {
     return json;

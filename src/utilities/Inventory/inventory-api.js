@@ -1,7 +1,8 @@
 import { getToken } from "../Users/users-service";
 
 //constant for file
-const BASE_URL = "/api/inventory";
+const apiUrl = import.meta.env.VITE_API_URL;
+const BASE_URL = `${apiUrl}/api/inventory`;
 
 function createHeaders() {
   const TOKEN = getToken();
@@ -17,7 +18,7 @@ export async function getInventoryList(id) {
     method: "GET",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/" + userId, options);
+  const res = await fetch(`${BASE_URL}/` + userId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -48,7 +49,7 @@ export async function updateInventoryItem(data) {
     headers: createHeaders(),
     body: JSON.stringify(data),
   };
-  const res = await fetch(BASE_URL + "/" + inventoryId, options);
+  const res = await fetch(`${BASE_URL}/` + inventoryId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -63,7 +64,7 @@ export async function deleteInventoryItem(id) {
     method: "DELETE",
     headers: createHeaders(),
   };
-  const res = await fetch(BASE_URL + "/" + inventoryId, options);
+  const res = await fetch(`${BASE_URL}/` + inventoryId, options);
   const json = await res.json();
   if (res.ok) {
     return json;
