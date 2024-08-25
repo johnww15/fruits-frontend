@@ -1,7 +1,8 @@
 import { getToken } from "./users-service";
 
 //constant for file
-const BASE_URL = "/api/users";
+const apiUrl = import.meta.env.VITE_API_URL;
+const BASE_URL = `${apiUrl}/api/users`;
 
 //consolidating function for requests
 export async function sendRequest(url, method = "GET", payload = null) {

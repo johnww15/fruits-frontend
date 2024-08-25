@@ -23,9 +23,7 @@ export function getToken() {
 
 //signup function
 export async function userSignup(signupData) {
-  console.log("signupData", signupData);
   const token = await usersAPI.userSignup(signupData);
-  console.log("user-service ran");
   localStorage.setItem("token", token);
 }
 
