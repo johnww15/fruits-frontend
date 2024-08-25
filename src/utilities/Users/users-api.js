@@ -34,5 +34,5 @@ export async function userSignup(signupData) {
 
 // login function
 export async function userLogin(loginData) {
-  return sendRequest(BASE_URL + "/login", "POST", loginData);
+  return sendRequest(`${BASE_URL}/login`, "POST", loginData);
 }
