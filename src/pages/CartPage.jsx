@@ -23,7 +23,6 @@ export default function CartPage({ user }) {
 
   return (
     <>
-      <h1>Your shopping cart</h1>
       <CartList fetchPurchaseList={fetchPurchaseList} user={user} />
     </>
   );

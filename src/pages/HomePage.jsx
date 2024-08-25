@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import {
   createInventoryItem,
   getFullInventoryList,
@@ -52,8 +52,19 @@ export default function HomePage({ user }) {
       <InventoryList fetchInventoryList={fetchInventoryList} user={user} />
 
       {user?.isOwner && (
-        <>
-          <Button color="primary" onClick={handleInventoryDialogOpen}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mb: 2,
+            mt: 2,
+          }}
+        >
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={handleInventoryDialogOpen}
+          >
             Add Inventory Item
           </Button>
 
@@ -62,7 +73,7 @@ export default function HomePage({ user }) {
             onClose={handleInventoryDialogClose}
             onSubmit={addInventoryItem}
           />
-        </>
+        </Box>
       )}
     </>
   );
