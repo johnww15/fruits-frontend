@@ -70,6 +70,34 @@ A full stack fruit stall ecommerce web application for shop owner accounts to cr
 
 ## Screenshots of Application
 
+**ERD**
+![ERD](https://github.com/johnww15/fruits-frontend/blob/main/public/01_ERD.png?raw=true)
+
+- Basic ERD Diagram to showcase the different data models
+
+**Login Account Screen**
+![Login Screen](https://github.com/johnww15/fruits-frontend/blob/main/public/02_Login.png?raw=true)
+
+**Customer Home Page**
+![Customer Home Page](https://github.com/johnww15/fruits-frontend/blob/main/public/03_CustomerHomePage.png?raw=true)
+
+- Customers can click on the shopping cart icon to create a new purchase
+
+**Customer Past Purchases**
+![Customer Past Purchases](https://github.com/johnww15/fruits-frontend/blob/main/public/04_CustomerPastPurchases.png?raw=true)
+
+- Customers can view their previous purchases and can click the "Quick Buy" button to immediately create a new purchase with the same quantity as before
+
+**Customer Shopping Cart**
+![Customer Shopping Cart](https://github.com/johnww15/fruits-frontend/blob/main/public/05_CustomerCart.png?raw=true)
+
+- Customers can click the trashcan icon to delete an existing purchase request before proceeding to check out
+
+**Shop Owner Store Page**
+![Owner Home Page](https://github.com/johnww15/fruits-frontend/blob/main/public/06_OwnerHomePage.png?raw=true)
+
+- Shop Owners can view their current stock levels on the page, add new listings or update existing listings
+
 ## Customer Stories
 
 1. As a customer, I want to see a list of fruits that are available to buy (complete with stock and pricing information), so that I can decide which fruits I want to buy.
@@ -157,5 +185,3 @@ A full stack fruit stall ecommerce web application for shop owner accounts to cr
 
 - INCOMPLETE
 - Not too sure what this is referring to but I have done my best to reduce the number of api calls that are sent per page/action done by the user
-
-## Summary
