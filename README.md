@@ -185,3 +185,13 @@ A full stack fruit stall ecommerce web application for shop owner accounts to cr
 
 - INCOMPLETE
 - Not too sure what this is referring to but I have done my best to reduce the number of api calls that are sent per page/action done by the user
+
+## Summary
+
+**Customer account for testing**
+email : email@email
+password : password
+
+**Shop Owner account for testing**
+email : shop@shop
+password: shop
