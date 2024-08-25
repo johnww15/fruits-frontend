@@ -186,10 +186,10 @@ A full stack fruit stall ecommerce web application for shop owner accounts to cr
 
 ## Summary
 
-**Customer account for testing**
-email : email@email
-password : password
+**Customer account for testing**  
+email: email@email  
+password: password
 
-**Shop Owner account for testing**
-email : shop@shop
+**Shop Owner account for testing**  
+email: shop@shop  
 password: shop
