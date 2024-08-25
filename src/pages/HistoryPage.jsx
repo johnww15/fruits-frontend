@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { getHistoryList } from "../utilities/Purchases/purchases-service";
-import HistoryList from "../components/HistoryPage/historylist";
+import HistoryList from "../components/HistoryPage/HistoryList";
 
 export default function HistoryPage({ user }) {
   const { updateHistoryList } = useContext(AppContext);
